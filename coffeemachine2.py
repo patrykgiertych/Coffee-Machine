@@ -14,13 +14,8 @@ class CoffeeMachine():
         self.cups_s = cups_s
         self.cash_s = cash_s
 
-    def remaining(self):
-        print('The coffee machine has:')
-        print(f'{self.water_s} of water')
-        print(f'{self.milk_s} of milk')
-        print(f'{self.beans_s} of beans')
-        print(f'{self.cups_s} of cups')
-        print(f'{self.cash_s} of money')
+    def __str__(self):
+        return f'The coffee machine has:\n{self.water_s} of water\n{self.milk_s} of milk\n{self.beans_s} of beans\n{self.cups_s} of cups\n{self.cash_s} of money'
         
     def add_supplies(self):
         print('Write how many ml of water do you want to add:')
@@ -79,7 +74,7 @@ def buy():
 espresso = Coffee(250, 0, 16, 4)
 latte = Coffee(350, 75, 20, 7)
 cappuccino = Coffee(200, 100, 12 , 6)
-CoffeeMachine(400, 540, 120, 9, 550)
+vendor = CoffeeMachine(400, 540, 120, 9, 550)
 
 while True:        
     action = input("Write action (buy, fill, take, remaining, exit): ")
@@ -90,6 +85,6 @@ while True:
     elif action == 'take':
         CoffeeMachine.take_cash()
     elif action == 'remaining':
-        CoffeeMachine.remaining()
+        print(vendor)
     elif action == 'exit':
         break
